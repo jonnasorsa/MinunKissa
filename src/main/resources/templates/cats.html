@@ -13,11 +13,23 @@
             type="image/x-icon"
             href="https://raw.githubusercontent.com/jonnasorsa/MinunKissa/master/src/main/resources/templates/MinunKissaKuvake.png"
     />
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+            crossorigin="anonymous"
+    />
+    <style>
+        body {
+  background-color: PapayaWhip;
+}
+
+    </style>
 </head>
 
 <body>
 <img src="https://raw.githubusercontent.com/jonnasorsa/MinunKissa/master/src/main/resources/templates/MinunKissa.png" width = "100%">
-      
+<div class="container-fluid pt-5 text-center">
             <h1>Rekisteröidyt kissat:</h1>
 
       <ul>
@@ -42,25 +54,25 @@
 
 
             <form method="get" action ="/new-cat">
-                <button>Lisää kissa </button>
+                <button class="btn btn-light btn-outline-dark">Lisää kissa </button>
             </form><br>
 
       <form method="get" action ="/edit-cat">
-          <button>Muokkaa kissaa </button>
+          <button class="btn btn-light btn-outline-dark">Muokkaa kissaa </button>
       </form><br>
 
       <form method="get" action ="/delete-cat">
-          <button> Poista kissa </button>
+          <button class="btn btn-light btn-outline-dark"> Poista kissa </button>
       </form>  <br>
 
         <form method="get" action ="/me">       
-           <button>  Takaisin oletussivulle </button>
+           <button class="btn btn-light btn-outline-dark">  Takaisin oletussivulle </button>
         </form> <br>
-    <center>
+
           <br>
           <br>       
             <p>©Jonna Sorsa     |       2022</p>
-    </center>
+</div>
     </body>
 
 

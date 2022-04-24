@@ -26,7 +26,6 @@ public class User extends AbstractPersistable<Long> {
     private String town;
     private String userName;    // tänne tulee sähköposti
     private String passWord;
-    private ArrayList<Cat> cats;
     private String name = userName;
     private boolean active = false;
 

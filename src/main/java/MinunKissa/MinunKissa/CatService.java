@@ -15,7 +15,12 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class CatService {
-    
+
+    public CatService() {
+        System.out.println("Creating catService");
+        this.cats = new ArrayList<>();
+    }
+
     private ArrayList<Cat> cats;
     
     @Autowired
@@ -37,8 +42,9 @@ public class CatService {
 
 
     void addCat(String name, String gender, String breed, String color, String owner, String officialName, String breeder, String number, String chip, String EMS, String dob, String dad, String mum) {
-         this.catRepository.save(new Cat(name, gender, breed, color, owner, officialName, breeder, number, chip,EMS, dob, dad, mum));
-         this.cats.add(new Cat(name, gender, breed, color, owner, officialName, breeder, number, chip,EMS, dob, dad, mum));
+         Cat cat= new Cat(name, gender, breed, color, owner, officialName, breeder, number, chip,EMS, dob, dad, mum);
+        this.catRepository.save(cat);
+        this.cats.add(cat);
     }
 
     @Transactional

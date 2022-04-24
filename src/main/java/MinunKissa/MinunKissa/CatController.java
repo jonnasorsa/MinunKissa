@@ -33,12 +33,26 @@ public class CatController {
         ArrayList<Cat> cats = catService.getCats();
         model.addAttribute("cats", cats);
         System.out.println(catService.getCats());
-        return "cats";
+
+        ArrayList<User> users = userService.getUsers();
+        for (User u : users) {
+            if (u.getActive()) {
+                return "cats";
+            }
+        }
+        return "redirect:/";
     }
     
     @GetMapping("/new-cat")
     public String addCat() {
-        return "new-cat";
+
+        ArrayList<User> users = userService.getUsers();
+        for (User u : users) {
+            if (u.getActive()) {
+                return "new-cat";
+            }
+        }
+        return "redirect:/";
     }
          
     
@@ -51,7 +65,16 @@ public class CatController {
 
 
     @GetMapping("/edit-cat")
-    public String editCat(){return "edit-cat";}
+    public String editCat() {
+
+        ArrayList<User> users = userService.getUsers();
+        for (User u : users) {
+            if (u.getActive()) {
+                return "edit-cat";
+            }
+        }
+        return "redirect:/";
+    }
 
     @PostMapping("/edit-cat")
     public String editCatData(@RequestParam String name, String gender, String breed, String color, String owner, String officialName, String breeder, String number, String chip, String EMS, String dob, String dad, String mum)
@@ -63,7 +86,16 @@ public class CatController {
     }
 
     @GetMapping("delete-cat")
-    public String catRemoval(){return "delete-cat";}
+    public String catRemoval(){
+
+        ArrayList<User> users = userService.getUsers();
+        for (User u : users) {
+            if (u.getActive()) {
+                return "delete-cat";
+            }
+        }
+        return "redirect:/";
+        }
 
     @PostMapping("/delete-cat")
     public String removeCat(@RequestParam String name){
@@ -72,16 +104,5 @@ public class CatController {
                 catService.deleteCatByName(name);
         return "redirect:/cats";
     }
-/*
-    @GetMapping("/delete-cat")
-    public String deleteCat() {
-        return "delete-cat";
-    }*/
-/*
-    @PostMapping("/new-user")
-    public String newUser(@RequestParam String firstName, String lastName, String town, String userName, String passWord){
-        System.out.println(firstName + lastName + town + userName + passWord);
-        userService.addUser(firstName, lastName, town, userName, passWord);
-        return "redirect:/";
-    }*/
+
 }

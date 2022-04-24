@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -53,8 +52,14 @@ public class UserController {
 
          @GetMapping("/delete-account") 
             public String deleting() {
-                return "delete-account";
-        }
+             ArrayList<User> users = userService.getUsers();
+             for (User u : users) {
+                 if (u.getActive()) {
+                     return "delete-account";
+                 }
+             }
+             return "redirect:/";
+         }
 
 
          @GetMapping("remove-confirm")
@@ -89,80 +94,23 @@ public class UserController {
              return "redirect:/";
          }
 
-         
-         @GetMapping("/user-info")
-         public String userPage() {
-             return "user-info";
-         }
-        // käyttäjätilin tiedot
-       // @GetMapping("/user-info/{userName}")
-       // public String getUserPage(@PathVariable String userName, Model model) {
-        //    User user = userService.findUserByName(userName);
-        //    model.addAttribute("user", user);
-        //   return "user-info";
-       //} 
+
 
 
         @GetMapping("/me")
-        public String getUserPage(Model model) {
+        public String getUserPage() {
+
             ArrayList<User> users = userService.getUsers();
-            User me = null;
+            System.out.println(userService.getUsers());
+
             for (User u : users) {
                 if (u.getActive()) {
-                    me = u;
+                    return "me";
                 }
             }
-            model.addAttribute("user", me);
-            return "me";
-
-            /* if (!userService.findUserByName(userName).getActive()) {
-                 System.out.println(userName);
-                 System.out.println(passWord);
-
-                 for (User u : users) {
-                     if (
-                             u.getUserName().equals(userName)) ;
-                     if (u.getPassWord().equals(passWord)) {
-                         System.out.println("It's a match! " + passWord);
-                         User user = u;
-                         userService.setActivity(userName);
-                         return "redirect:/me" + user.getUserName();
-                     }
-                 }
-                 System.out.println("It's not a match");
-                 return "redirect:/";
-             }*//*
-             User user = null;
-             for (User u : users) {
-                 if (u.getActive())
-                         {
-                             user = u;
-                         }
-        }
-             if (user==null)return "me";
-            else {
-                 return "redirect:/me/" + user.getUserName();
-             }*/
+            return "redirect:/";
      }
 
-
-/*
-     @GetMapping("/me/{userName}")
-     public String getUserPageData() {
-         ArrayList<User> users = userService.getUsers();
-         User user = null;
-         Model model = null;
-         for (User u : users) {
-             if (u.getActive())
-             {
-                 user = u;
-             }
-
-         }
-             model.addAttribute("user", user);
-             return "user";
-     }
-*/
         
         @GetMapping("/logout")
         public String logOut() {

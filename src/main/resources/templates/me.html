@@ -17,32 +17,28 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     <body>
         <img src ="MinunKissa.png" width = "100%">
         <h1>Tervetuloa MinunKissaan!</h1>
+        <h2>Olet kirjautunut onnistuneesti sisään.</h2>
+        <p>MinunKissassa voit tutkia, muokata ja poistaa tietokannasta löytyviä kissoja.</p><br>
+        <p>Vain rekisteröityneet käyttäjät voivat käyttää palvelua. Nautinnollisia kissahetkiä!</p><br>
         <div>
             <div>
 
                 <form method="get" action ="/cats">
-                    <button> Näytä omat kissat </button>
+                    <button> Näytä järjestelmään rekisteröidyt kissat </button>
                 </form>
                 <br>
                 <br>
-                <h1>Omat tiedot</h1>
                 <br>
-                <ul>
-                    <li th:each="user:${users}">
-                <a th:text="'Etuimi: '+${user.firstName}">firstName</a>
-                <a th:text="'Sukunimi: '+{$user.lastName}">lastName</a>
-                <a th:text="'Kaupunki: '+{$user.town} ">town</a>
-                <a th:text=" 'Sähköpostiosoite/käyttäjätunnus: ' +{user.userName}">userName</a>
-                    </li><br><br>
-                </ul>
+
+
             </div>
         </div>
                 <br>
 
                 <form method="get" action ="/logout">
                     <button>  Kirjaudu ulos </button>
-                </form>
-
+                </form><br>
+        <p>Mikäli et ole tyytyväinen palveluun, voit poistaa käyttäjätietosi järjestelmästämme.</p><br>
                 <form method="get" action ="/delete-account">
                     <button>  Poista käyttäjätili </button>
                 </form>

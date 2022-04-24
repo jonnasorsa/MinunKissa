@@ -24,7 +24,7 @@
 
       <ul>
           <li th:each="cat:${cats}">
-              <a th:text="${cat.name} ">cat</a><br>
+              <h2 th:text="${cat.name} ">cat</h2>
               <a th:text="'virallinen nimi:     ' +${cat.officialName}">Rekisteröity nimi</a><br>
               <a th:text="'kasvattaja:      '+ ${cat.breeder}">Kasvattaja</a><br>
               <a th:text="'rekisterinumero:     '+ ${cat.number}">Rekisterinumero</a><br>
@@ -36,7 +36,7 @@
               <a th:text="'väri:    ' + ${cat.color}">Väri</a><br>
               <a th:text="'isä: ' + ${cat.dad}">Isä</a><br>
               <a th:text="'emo: ' + ${cat.mum}">Emo</a><br>
-              <a th:text="'omistaja:    ' + ${cat.owner}">Omistaja</a><br>
+              <a th:text="'omistaja:    ' + ${cat.owner}">Omistaja</a><br><br><br>
 
           </li><br><br>
       </ul>
@@ -56,7 +56,7 @@
       </form>  <br>
 
         <form method="get" action ="/me">       
-           <button>  Takaisin omalle sivulle </button>
+           <button>  Takaisin oletussivulle </button>
         </form> <br>
     <center>
           <br>

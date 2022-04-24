@@ -17,18 +17,20 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
+
+    @Transactional
     public void setActivity(String userName) {
       User user = this.findUserByName(userName);
       if(user.getActive())
-          user.setActive(false);
-      else user.setActive(true);
+          user.setInActive();
+      else user.setActive();
       this.userRepository.save(user);
     }
     
     private ArrayList<User> users;
     
-//   @Autowired
-//   private CatService catService;
+    @Autowired
+    private CatService catService;
     
     @Autowired
     private UserRepository userRepository;

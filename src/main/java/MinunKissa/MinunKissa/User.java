@@ -46,13 +46,14 @@ public class User extends AbstractPersistable<Long> {
         return active;
         }
     
-    public void setActive(boolean b) {
+    public void setActive() {
         this.active = true;
         System.out.println("Käyttäjästä " + firstName + " tehty aktiivinen");
     }
     
-    public void setInActive(boolean b) {
+    public void setInActive() {
         this.active = false;
+        System.out.println("Käyttäjästä " + firstName + " tehty epäaktiivinen");
     }
     
 }

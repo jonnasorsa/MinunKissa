@@ -2162,3 +2162,9 @@ Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/Users/jon
 	at org.h2.mvstore.FileStore.open(FileStore.java:172)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:381)
 	... 127 more
+2022-04-24 17:11:16 jdbc[23]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "UESR" not found; SQL statement:
+select * from uesr [42102-200]
+2022-04-24 18:17:04 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "UPDATE USER SER ACTIVE[*] = FALSE"; expected "SET"; SQL statement:
+update user ser active = false [42001-200]

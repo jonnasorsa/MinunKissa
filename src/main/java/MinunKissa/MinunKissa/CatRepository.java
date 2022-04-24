@@ -10,7 +10,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @author jonna
  */
 public interface CatRepository extends JpaRepository<Cat, Long>  {
-        ArrayList<Cat> findByName(String number);
+        ArrayList<Cat> findByName(String name);
         ArrayList<Cat> findAll();
-        Long deleteByName(String number);
+        Long deleteByName(String name);
 }

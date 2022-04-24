@@ -27,11 +27,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <br>
                 <h1>Omat tiedot</h1>
                 <br>
-
-                <p th:text="'Etuimi: '+${user.firstName}">firstName</p>
-                <p th:text="'Sukunimi: '+{$user.lastName}">lastName</p>
-                <p th:text="'Kaupunki: '+{$user.town} ">town</p>
-                <p th:text=" 'Sähköpostiosoite/käyttäjätunnus: ' +{user.userName}">userName</p>
+                <ul>
+                    <li th:each="user:${users}">
+                <a th:text="'Etuimi: '+${user.firstName}">firstName</a>
+                <a th:text="'Sukunimi: '+{$user.lastName}">lastName</a>
+                <a th:text="'Kaupunki: '+{$user.town} ">town</a>
+                <a th:text=" 'Sähköpostiosoite/käyttäjätunnus: ' +{user.userName}">userName</a>
+                    </li><br><br>
+                </ul>
             </div>
         </div>
                 <br>

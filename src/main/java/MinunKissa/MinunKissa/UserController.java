@@ -28,7 +28,7 @@ public class UserController {
          private CatService catService;
          
 
-         @GetMapping("/login")           
+         @GetMapping("/login/me")
          public String checkUser(@RequestParam String userName, String passWord) {
 
              System.out.println(userName);
@@ -42,11 +42,8 @@ public class UserController {
                          {
                  System.out.println("It's a match! " + passWord);
                  User user = u;
-                 //user.setActive(true);
                  userService.setActivity(userName);
-                 //userService.deleteUser(userName);
-                 //userService.addUser(user.getFirstName(), user.getLastName(), user.getTown(), userName, passWord);
-                 return "me";
+                 return "redirect:/me";
              }
              }            
                 System.out.println("It's not a match");
@@ -58,7 +55,8 @@ public class UserController {
             public String deleting() {
                 return "delete-account";
         }
-         
+
+
          @GetMapping("remove-confirm")
          public String deletePage(){
              ArrayList<User> users = userService.getUsers();
@@ -106,8 +104,34 @@ public class UserController {
 
 
         @GetMapping("/me")
-        public String getUserPage() {
-             ArrayList<User> users = userService.getUsers();
+        public String getUserPage(Model model) {
+            ArrayList<User> users = userService.getUsers();
+            User me = null;
+            for (User u : users) {
+                if (u.getActive()) {
+                    me = u;
+                }
+            }
+            model.addAttribute("user", me);
+            return "me";
+
+            /* if (!userService.findUserByName(userName).getActive()) {
+                 System.out.println(userName);
+                 System.out.println(passWord);
+
+                 for (User u : users) {
+                     if (
+                             u.getUserName().equals(userName)) ;
+                     if (u.getPassWord().equals(passWord)) {
+                         System.out.println("It's a match! " + passWord);
+                         User user = u;
+                         userService.setActivity(userName);
+                         return "redirect:/me" + user.getUserName();
+                     }
+                 }
+                 System.out.println("It's not a match");
+                 return "redirect:/";
+             }*//*
              User user = null;
              for (User u : users) {
                  if (u.getActive())
@@ -118,22 +142,42 @@ public class UserController {
              if (user==null)return "me";
             else {
                  return "redirect:/me/" + user.getUserName();
-             }
+             }*/
      }
-        
+
+
+/*
+     @GetMapping("/me/{userName}")
+     public String getUserPageData() {
+         ArrayList<User> users = userService.getUsers();
+         User user = null;
+         Model model = null;
+         for (User u : users) {
+             if (u.getActive())
+             {
+                 user = u;
+             }
+
+         }
+             model.addAttribute("user", user);
+             return "user";
+     }
+*/
         
         @GetMapping("/logout")
         public String logOut() {
             ArrayList<User> users = userService.getUsers();
              for (User u : users) {
-                 System.out.println("Testataan, löytyykö poistettavaa");
+                 System.out.println("etsitään aktiivinen käyttäjä");
                  if (u.getActive())
                          {
-                             userService.setActivity(u.getUserName());
+                             System.out.println("Kirjataan käyttäjä " + u.getUserName() + " ulos");
+                             String userName = u.getUserName();
+                             userService.setActivity(userName);
                          }
-
+                    else System.out.println(u.getUserName() + " ei ole aktiivinen");
         }
-              return "/";           
+              return "redirect:/";
 }
         
         

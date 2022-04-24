@@ -20,39 +20,44 @@
     <body>
       <img src ="MinunKissa.png" width = "100%"> 
       
-            <h1>Omistamasi kissat:</h1>
-        <ul>
+            <h1>Rekisteröidyt kissat:</h1>
+
+      <ul>
           <li th:each="cat:${cats}">
-            <a th:href="@{cats/{item}(item=${cat.name})}" th:text="${cat.name} + ' (level ' + ${cat.officialName} + ')'">kissa</a>
-           </li>
-        </ul>      
-            <!--<h2 th:text="${cat.name}">Kutsumanimi</h2>    
-        <p th:text="${cat.officialName}">Rekisteröity nimi</p>
-        <p th:text="'breeder: '+ ${cat.breeder}">Kasvattaja</p>      
-        <p th:text="'number: '+ ${cat.number}">Rekisterinumero</p>
-        <p th:text="'dob:' + ${cat.dob}">Syntymäpäivä</p>
-        <p th:text="'gender:' + ${cat.gender}">Sukupuoli</p> 
-        <p th:text="'chip:' + ${cat.chip}">Mikrosirunumero</p>
-        <p th:text="'EMS:' + ${cat.EMS}">EMS-koodi</p>
-        <p th:text="'breed:' + ${cat.breed}">Rotu</p>
-        <p th:text="'color:' + ${cat.color}">Väri</p>
-        <p th:text="'dad:' + ${cat.dad}">Isä</p>
-        <p th:text="'mum:' + ${cat.mum}">Emo</p>
-        <p th:text="'owner:' + ${cat.owner}">Omistaja</p> comment -->
-        
-            
-            <ul>  
-                       <li th:each="cat:${cats}">
-            <a th:href="@{cats/{item}(item=${cat.name})}" th:text="${cat.name} + ')'">cat</a>
-                      </li>
-            </ul>
+              <a th:text="${cat.name} ">cat</a><br>
+              <a th:text="'virallinen nimi:     ' +${cat.officialName}">Rekisteröity nimi</a><br>
+              <a th:text="'kasvattaja:      '+ ${cat.breeder}">Kasvattaja</a><br>
+              <a th:text="'rekisterinumero:     '+ ${cat.number}">Rekisterinumero</a><br>
+              <a th:text="'syntymäpäivä:    ' + ${cat.dob}">Syntymäpäivä</a><br>
+              <a th:text="'sukupuoli:   ' + ${cat.gender}">Sukupuoli</a><br>
+              <a th:text="'sirunumero:  ' + ${cat.chip}">Mikrosirunumero</a><br>
+              <a th:text="'EMS-koodi:   ' + ${cat.EMS}">EMS-koodi</a><br>
+              <a th:text="'rotu:    ' + ${cat.breed}">Rotu</a><br>
+              <a th:text="'väri:    ' + ${cat.color}">Väri</a><br>
+              <a th:text="'isä: ' + ${cat.dad}">Isä</a><br>
+              <a th:text="'emo: ' + ${cat.mum}">Emo</a><br>
+              <a th:text="'omistaja:    ' + ${cat.owner}">Omistaja</a><br>
+
+          </li><br><br>
+      </ul>
+
+
+
             <form method="get" action ="/new-cat">
                 <button>Lisää kissa </button>
-            </form>
-            
+            </form><br>
+
+      <form method="get" action ="/edit-cat">
+          <button>Muokkaa kissaa </button>
+      </form><br>
+
+      <form method="get" action ="/delete-cat">
+          <button> Poista kissa </button>
+      </form>  <br>
+
         <form method="get" action ="/me">       
            <button>  Takaisin omalle sivulle </button>
-        </form> 
+        </form> <br>
     <center>
           <br>
           <br>       

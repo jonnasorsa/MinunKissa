@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+
+    <title>Omat tiedot</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+            rel="shortcut icon"
+            type="image/x-icon"
+            href="MinunKissaKuvake.png"
+    />
+
+</head>
+
+<body>
+
+<img src ="MinunKissa.png" width = "100%">
+<center>
+    <h1>Haluatko varmasti poistaa kissan?</h1>
+    <br>
+    <br>
+    <form method="get" action ="/me">
+        <button>  Takaisin omalle sivulle </button>
+    </form>
+
+    <form method="get" action ="/logout">
+        <button>  Kirjaudu ulos </button>
+    </form>
+    <br><br>
+    <form method="post" action ="/delete-cat">
+        <input type="checkbox" required>vahvista poisto
+        <input type="text" name = "name" required>
+        <button>  Poista kissa </button>
+    </form><br>
+
+
+    <p>©Jonna Sorsa     |       2022</p>
+</center>
+</body>
+
+
+</html>

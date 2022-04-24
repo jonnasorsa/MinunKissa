@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 /**
@@ -27,30 +28,60 @@ public class CatController {
     
     
     @GetMapping("/cats")
-    public String getCats() {
+    public String getCats(Model model)
+    {
+        ArrayList<Cat> cats = catService.getCats();
+        model.addAttribute("cats", cats);
+        System.out.println(catService.getCats());
         return "cats";
     }
     
-    @GetMapping("new-cat")
+    @GetMapping("/new-cat")
     public String addCat() {
         return "new-cat";
     }
          
     
     @PostMapping("/new-cat")
-    public String addCat(@RequestParam String name, String gender, String breed, String color, String owner, String officialName, String breeder, String number, String chip, String EMS, String dob, String dad, String mum) {    //TODO: lisää attribuutit
+    public String addCat(@RequestParam String name, String gender, String breed, String color, String owner, String officialName, String breeder, String number, String chip, String EMS, String dob, String dad, String mum) {
+        System.out.println(name+ gender+ breed+ color+ owner+ officialName+ breeder+ number+ chip+EMS+ dob+ dad+ mum);
         catService.addCat(name, gender, breed, color, owner, officialName, breeder, number, chip,EMS, dob, dad, mum);
         return "redirect:/cats";
     }
-    /*
-            public String newUser(@RequestParam String firstName, String lastName, String town, String userName, String passWord){
-             System.out.println(firstName + lastName + town + userName + passWord);
-             userService.addUser(firstName, lastName, town, userName, passWord);
-             return "redirect:/";
-    */
-    @PostMapping("/deletecat")
-    public String deleteCat(@RequestParam String number) {
-        catService.deleteCatByName(number);
+
+
+    @GetMapping("/edit-cat")
+    public String editCat(){return "edit-cat";}
+
+    @PostMapping("/edit-cat")
+    public String editCatData(@RequestParam String name, String gender, String breed, String color, String owner, String officialName, String breeder, String number, String chip, String EMS, String dob, String dad, String mum)
+    {
+        ArrayList<Cat> cats = catService.getCats();
+        Cat cat = new Cat(name, gender, breed, color, owner, officialName, breeder, number, chip,EMS, dob, dad, mum);
+        catService.updateCat(cat);
         return "redirect:/cats";
     }
+
+    @GetMapping("delete-cat")
+    public String catRemoval(){return "delete-cat";}
+
+    @PostMapping("/delete-cat")
+    public String removeCat(@RequestParam String name){
+        ArrayList<Cat> cats = catService.getCats();
+        System.out.println("Poistettava kissa: " + name);
+                catService.deleteCatByName(name);
+        return "redirect:/cats";
+    }
+/*
+    @GetMapping("/delete-cat")
+    public String deleteCat() {
+        return "delete-cat";
+    }*/
+/*
+    @PostMapping("/new-user")
+    public String newUser(@RequestParam String firstName, String lastName, String town, String userName, String passWord){
+        System.out.println(firstName + lastName + town + userName + passWord);
+        userService.addUser(firstName, lastName, town, userName, passWord);
+        return "redirect:/";
+    }*/
 }

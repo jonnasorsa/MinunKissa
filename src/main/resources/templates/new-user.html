@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+    <head>
+
+        <title>Omat tiedot</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="MinunKissaKuvake.png"
+    />
+    </head>
+
+    <body>
+
+      <img src ="MinunKissa.png" width = "100%"> 
+    <center>
+        <h1>Rekisteröidy syöttämällä kysytyt tiedot</h1>
+            <form action ="/new-user" method="post"> 
+                <pre>
+            <input type="text" name="firstName" placeholder="Etunimi" required> <br>
+            <input type="text" name="lastName" placeholder="Sukunimi" required> <br>
+            <input type="text" name="town" placeholder="Asuinkaupunki" required> <br>
+            <input type="text" name="userName" placeholder="esimerkki@email.com" required> <br>
+            <input type="password" name="passWord" placeholder="salasana" required> <br>
+          <button type="submit"> Rekisteröidy! </button>
+          </pre>
+        </form>
+          <br>
+          <br>       
+            <p>©Jonna Sorsa     |       2022</p>
+    </center>
+    </body>
+
+
+    </html>

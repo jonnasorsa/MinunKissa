@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+
+    <title>MinunKissa</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+            rel="shortcut icon"
+            type="image/x-icon"
+            href="MinunKissaKuvake.png"
+    />
+</head>
+
+<body>
+<img src ="MinunKissa.png" width = "100%">
+<h1>Tervetuloa MinunKissaan!</h1>
+<h2>Mikä on MinunKissa?</h2>
+<p>MinunKissa on sähköinen tietokanta, johon tallennetaan kissojen sekä niiden omistajien tiedot.<br>
+    MinunKissa on originaali idea, eikä missään nimessä millään muotoa perustu Suomen Kissaliiton<br>
+    tilaamaan OmaKissa-palveluun.</p>
+
+    <h2>Kirjaudu palveluun</h2>
+
+    <form method="get" action ="/login">
+                <pre>
+            <input type="text" name="userName" placeholder="esimerkki@email.com" required> <br>
+            <input type="password" name="passWord" placeholder="salasana" required> <br>
+          <button type="submit"> Kirjaudu </button>
+          </pre>
+    </form>
+
+
+
+    <h3>Eikö sinulla ole vielä käyttäjätunnusta?</h3>
+    <form method="get" action ="/new-user">
+        <button> Rekisteröidy käyttäjäksi </button>
+    </form>
+    <br>
+    <br>
+
+    <p>©Jonna Sorsa     |       2022</p>
+</body>
+
+
+</html>

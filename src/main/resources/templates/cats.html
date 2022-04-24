@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+    <head>
+
+        <title>Omat kissat</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="MinunKissaKuvake.png"
+    />
+    </head>
+
+
+    
+    <body>
+      <img src ="MinunKissa.png" width = "100%"> 
+      
+            <h1>Omistamasi kissat:</h1>
+        <ul>
+          <li th:each="cat:${cats}">
+            <a th:href="@{cats/{item}(item=${cat.name})}" th:text="${cat.name} + ' (level ' + ${cat.officialName} + ')'">kissa</a>
+           </li>
+        </ul>      
+            <!--<h2 th:text="${cat.name}">Kutsumanimi</h2>    
+        <p th:text="${cat.officialName}">Rekisteröity nimi</p>
+        <p th:text="'breeder: '+ ${cat.breeder}">Kasvattaja</p>      
+        <p th:text="'number: '+ ${cat.number}">Rekisterinumero</p>
+        <p th:text="'dob:' + ${cat.dob}">Syntymäpäivä</p>
+        <p th:text="'gender:' + ${cat.gender}">Sukupuoli</p> 
+        <p th:text="'chip:' + ${cat.chip}">Mikrosirunumero</p>
+        <p th:text="'EMS:' + ${cat.EMS}">EMS-koodi</p>
+        <p th:text="'breed:' + ${cat.breed}">Rotu</p>
+        <p th:text="'color:' + ${cat.color}">Väri</p>
+        <p th:text="'dad:' + ${cat.dad}">Isä</p>
+        <p th:text="'mum:' + ${cat.mum}">Emo</p>
+        <p th:text="'owner:' + ${cat.owner}">Omistaja</p> comment -->
+        
+            
+            <ul>  
+                       <li th:each="cat:${cats}">
+            <a th:href="@{cats/{item}(item=${cat.name})}" th:text="${cat.name} + ')'">cat</a>
+                      </li>
+            </ul>
+            <form method="get" action ="/new-cat">
+                <button>Lisää kissa </button>
+            </form>
+            
+        <form method="get" action ="/me">       
+           <button>  Takaisin omalle sivulle </button>
+        </form> 
+    <center>
+          <br>
+          <br>       
+            <p>©Jonna Sorsa     |       2022</p>
+    </center>
+    </body>
+
+
+    </html>

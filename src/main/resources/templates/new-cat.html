@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+    <head>
+
+        <title>Uuden kissan tiedot</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="MinunKissaKuvake.png"
+    />
+    </head>
+
+    <body>
+
+      <img src ="MinunKissa.png" width = "100%">
+      <h1>Syötä kissan tiedot</h1>
+      <form action ="/new-cat" method="post">
+                <pre>
+            <a>Pakolliset tiedot:</a>
+            <input type="text" name="name" placeholder="Kutsumanimi" required> <br>
+            <input type="text" name="gender" placeholder="Sukupuoli" required> <br>
+            <input type="text" name="breed" placeholder="Rotu" required> <br>
+            <input type="text" name="color" placeholder="Väri" required> <br>
+            <input type="text" name="owner" placeholder="Omistaja" required> <br>
+            <a>Lisätiedot:</a>
+            <input type="text" name="officialName" placeholder="Rekisteröity nimi"> <br>
+            <input type="text" name="breeder" placeholder="Kasvattaja"> <br>
+            <input type="text" name="number" placeholder="Rekisterinumero"> <br>
+            <input type="text" name="chip" placeholder="Sirunumero"> <br>
+            <input type="text" name="EMS" placeholder="EMS-koodi"> <br>
+            <input type="text" name="dob" placeholder="Syntymäpäivä"> <br>
+            <input type="text" name="dad" placeholder="Isä"> <br>
+            <input type="text" name="mum" placeholder="Emo"> <br>
+          <button type="submit"> Lisää kissa </button>
+          </pre>
+      </form>
+      <br>
+      <br>
+      <p>©Jonna Sorsa     |       2022</p>
+    </body>
+
+
+    </html>

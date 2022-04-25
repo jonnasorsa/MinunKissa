@@ -2,7 +2,6 @@ package MinunKissa.MinunKissa;
 
 
 import javax.persistence.Entity;
-//import javax.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,7 +27,5 @@ public class Cat extends AbstractPersistable<Long> {
     private String dob;
     private String dad;
     private String mum;
-    //Cat(String aname, String agender, String abreed, String acolor, String aowner, String aofficialName, String abreeder, String anumber, String achip, String aEMS, String adob, String adad, String amum) {        
-    //}
 }
 
